@@ -1,6 +1,6 @@
 #!/bin/bash
 cd ../..
-docker pull ubuntu:20.04
+docker pull ubuntu:22.04
 echo TeamCity/webapps > context/.dockerignore
 echo TeamCity/devPackage >> context/.dockerignore
 echo TeamCity/lib >> context/.dockerignore
