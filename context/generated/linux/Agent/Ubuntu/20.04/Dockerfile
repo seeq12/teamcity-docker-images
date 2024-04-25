@@ -1,11 +1,11 @@
 # Default arguments
 ARG containerdIoLinuxComponentVersion='1.6.28-2'
 ARG dockerLinuxComponentVersion='5:24.0.9-1~ubuntu'
-ARG dotnetLibs='libc6 libgcc1 libgssapi-krb5-2 libicu66 libssl1.1 libstdc++6 zlib1g'
+ARG dotnetLibs='libc6 libgcc1 libgssapi-krb5-2 libicu70 libssl3 libstdc++6 zlib1g'
 ARG dotnetLinuxComponent='https://dotnetcli.blob.core.windows.net/dotnet/Sdk/6.0.413/dotnet-sdk-6.0.413-linux-x64.tar.gz'
 ARG dotnetLinuxComponentSHA512='ee0a77d54e6d4917be7310ff0abb3bad5525bfb4beb1db0c215e65f64eb46511f5f12d6c7ff465a1d4ab38577e6a1950fde479ee94839c50e627020328a702de'
-ARG gitLFSLinuxComponentVersion='2.9.2-1'
-ARG gitLinuxComponentVersion='1:2.43.2-0ppa1~ubuntu20.04.1'
+ARG gitLFSLinuxComponentVersion='3.0.2-1ubuntu0.2'  # Updated to the latest version for Ubuntu 22.04
+ARG gitLinuxComponentVersion='1:2.43.2-0ppa1~ubuntu22.04.1'  # updated the base to ubuntu 22.04
 ARG p4Version='2022.2-2531894'
 ARG repo='https://hub.docker.com/r/jetbrains/'
 ARG teamcityMinimalAgentImage='teamcity-minimal-agent:EAP-linux'
@@ -57,7 +57,7 @@ ARG containerdIoLinuxComponentVersion
 ARG p4Version
 
 RUN apt-get update && \
-    apt-get install -y mercurial apt-transport-https software-properties-common && \
+    apt-get install -y xz-utils mercurial apt-transport-https software-properties-common && \
     add-apt-repository ppa:git-core/ppa -y && \
     apt-get install -y git=${gitLinuxComponentVersion} git-lfs=${gitLFSLinuxComponentVersion} && \
     git lfs install --system && \
